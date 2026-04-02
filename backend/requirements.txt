@@ -37,7 +37,7 @@ pdf2image==1.17.0
 nltk==3.8.1
 rank_bm25==0.2.2          # BM25 keyword search
 tiktoken==0.7.0           # Token counting
-python-magic-bin==0.4.14  # File type detection (Windows-compatible, includes libmagic DLL)
+python-magic
 
 # ─── Cache / Storage ─────────────────────────────────────────────────────────
 redis==5.0.6
