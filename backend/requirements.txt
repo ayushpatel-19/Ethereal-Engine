@@ -1,0 +1,51 @@
+# ─── Web Framework ───────────────────────────────────────────────────────────
+fastapi==0.111.0
+uvicorn[standard]==0.30.0
+python-multipart==0.0.9
+websockets==12.0
+httpx==0.27.0
+
+# ─── Data Validation ─────────────────────────────────────────────────────────
+pydantic==2.7.4
+pydantic-settings==2.3.0
+
+# ─── LLM / AI ────────────────────────────────────────────────────────────────
+ollama>=0.3.0
+langchain==0.2.9
+langchain-community==0.2.9
+langchain-ollama==0.1.3
+
+# ─── Vector Store ────────────────────────────────────────────────────────────
+chromadb==0.5.3
+sentence-transformers==3.0.0
+
+# ─── Document Ingestion ──────────────────────────────────────────────────────
+pypdf==4.2.0
+pdfplumber==0.11.1
+python-docx==1.1.2
+beautifulsoup4==4.12.3
+requests==2.32.3
+trafilatura==1.9.0       # Web content extraction
+playwright==1.44.0       # JS-rendered page crawling
+
+# ─── OCR ─────────────────────────────────────────────────────────────────────
+pytesseract==0.3.10
+Pillow==10.3.0
+pdf2image==1.17.0
+
+# ─── Text Processing ─────────────────────────────────────────────────────────
+nltk==3.8.1
+rank_bm25==0.2.2          # BM25 keyword search
+tiktoken==0.7.0           # Token counting
+python-magic-bin==0.4.14  # File type detection (Windows-compatible, includes libmagic DLL)
+
+# ─── Cache / Storage ─────────────────────────────────────────────────────────
+redis==5.0.6
+aiofiles==23.2.1
+
+# ─── Reranking ───────────────────────────────────────────────────────────────
+flashrank==0.2.8
+
+# ─── Observability ───────────────────────────────────────────────────────────
+loguru==0.7.2
+prometheus-client==0.20.0
