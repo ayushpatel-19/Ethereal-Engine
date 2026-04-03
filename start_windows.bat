@@ -10,7 +10,7 @@ set "ACTIVATE_BAT=%BACKEND_DIR%\venv\Scripts\activate.bat"
 set "BACKEND_PORT=8010"
 set "FRONTEND_PORT=3010"
 set "LLM_MODEL=phi3:mini"
-set "EMBED_MODEL=nomic-embed-text"
+set "EMBED_MODEL=all-minilm:latest"
 
 echo.
 echo  =========================================================
@@ -115,7 +115,7 @@ if not exist node_modules (
 echo [6/6] Starting backend and React frontend...
 start "Ethereal Backend" cmd /k "cd /d ""%BACKEND_DIR%"" && call venv\Scripts\activate.bat && python -m uvicorn main:app --host 0.0.0.0 --port %BACKEND_PORT% --reload"
 timeout /t 4 /nobreak >nul
-start "Ethereal Frontend" cmd /k "cd /d ""%FRONTEND_DIR%"" && set VITE_API_BASE=http://localhost:%BACKEND_PORT%/api && npm run dev -- --host 0.0.0.0 --port %FRONTEND_PORT%"
+start "Ethereal Frontend" cmd /k "cd /d ""%FRONTEND_DIR%"" && set VITE_API_BASE=http://localhost:%BACKEND_PORT%/api && npm run dev"
 timeout /t 4 /nobreak >nul
 
 echo.
