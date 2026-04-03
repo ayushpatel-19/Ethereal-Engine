@@ -85,8 +85,9 @@ class PipelineSocketManager {
 async function apiFetch(path, options = {}) {
   const headers = new Headers(options.headers || {});
   const isFormData = options.body instanceof FormData;
+  const hasBody = options.body != null;
 
-  if (!isFormData && !headers.has("Content-Type")) {
+  if (!isFormData && hasBody && !headers.has("Content-Type")) {
     headers.set("Content-Type", "application/json");
   }
 

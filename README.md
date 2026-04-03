@@ -129,6 +129,12 @@ Frontend deploy notes:
 - Set `VITE_API_BASE=https://your-render-service.onrender.com/api`
 - The included `frontend/vercel.json` rewrites all routes to `index.html` so React Router works on refresh
 
+Render deploy notes:
+
+- If the Render service root directory is `backend`, use `pip install -r requirements.txt` as the build command
+- If the Render service root directory is `backend`, use `uvicorn main:app --host 0.0.0.0 --port $PORT` as the start command
+- Do not prepend `cd backend &&` when the root directory is already `backend`
+
 ## Backend Features Mapped to the UI
 
 - Ingestion page

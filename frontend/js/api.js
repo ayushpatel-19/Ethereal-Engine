@@ -3,9 +3,7 @@
  * Wraps all backend REST endpoints with error handling and loading states.
  */
 
-const API_BASE = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
-  ? 'http://localhost:8010/api'
-  : '/api';
+const API_BASE = import.meta.env.VITE_API_BASE || 'http://localhost:8010/api';
 
 const WS_BASE = API_BASE.replace('http', 'ws') + '/ws';
 
@@ -62,9 +60,16 @@ class PipelineSocket {
 
 // ─── HTTP Helper ──────────────────────────────────────────────────────────
 async function apiFetch(path, options = {}) {
+  const hasBody = options.body != null;
+  const headers = { ...options.headers };
+
+  if (hasBody && !(options.body instanceof FormData) && !headers["Content-Type"]) {
+    headers["Content-Type"] = "application/json";
+  }
+
   const url = `${API_BASE}${path}`;
   const res = await fetch(url, {
-    headers: { 'Content-Type': 'application/json', ...options.headers },
+    headers,
     ...options,
   });
   if (!res.ok) {
