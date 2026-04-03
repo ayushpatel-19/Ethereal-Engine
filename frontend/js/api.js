@@ -3,7 +3,7 @@
  * Wraps all backend REST endpoints with error handling and loading states.
  */
 
-const API_BASE = import.meta.env.VITE_API_BASE || 'http://localhost:8010/api';
+const API_BASE = import.meta.env.VITE_API_BASE || 'https://ethereal-engine-api.onrender.com/api';
 
 const WS_BASE = API_BASE.replace('http', 'ws') + '/ws';
 
